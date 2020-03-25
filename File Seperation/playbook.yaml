@@ -1,0 +1,27 @@
+# Let us now improvise a little bit. Let us move some of the variable details out to a vars section at the top.
+# Add a vars section under the play and define db_name, db_user and db_password.
+# Then replace the static definitions to use variable name
+
+-
+  name: Deploy a web application
+  hosts: db_and_web_server
+
+  tasks:
+    - name: Install dependencies
+      apt: name={{ item }} state=present
+      with_items:
+       - python
+       - python-setuptools
+       - python-dev
+       - build-essential
+       - python-pip
+       - python-mysqldb
+    - include: tasks/deploy_db.yaml
+    - include: tasks/deploy_web_app.yaml
+
+
+
+
+
+
+

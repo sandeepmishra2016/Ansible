@@ -1,0 +1,63 @@
+
+#Install firewall
+#Install Maria db
+#Configure Maria db
+#Start Mariadb
+#Configure firewall
+#Configure database
+#Load data
+
+#Install httpd
+#Install php
+#Configure firewall
+#Configure httpd
+#Start httpd
+#Download Code
+#Test
+
+#ansible-playbook pkg_install.yml -i inventory.txt -K
+##============================##
+-
+  name: 'Install required packages'
+  hosts: child1
+  become: yes
+  become_method: su
+  become_user: root
+  remote_user: redhat
+  become_flags: '-s /bin/sh'
+
+  vars:
+    packages:
+      - firewalld
+      - httpd
+      - mariadb-server
+      - php
+      - php-mysql
+      - git
+  tasks:
+    -
+      shell: 'systemctl status sshd'
+      register: command_output
+    -
+      yum:
+        name: '{{ item }}'
+        state: present
+      with_items: '{{ packages }}'
+    -
+      service:
+        -
+          name: httpd
+          state: started
+          enabled: yes
+        -
+          name: mariadb
+          state: started
+          enabled: yes
+
+    -
+      command: "{{item}}"
+      with_items:
+       - firewall-cmd --permanent --zone=public --add-port=3306/tcp
+       - firewall-cmd --permanent --zone=public --add-port=80/tcp
+
+

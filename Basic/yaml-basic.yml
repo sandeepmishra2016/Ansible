@@ -1,0 +1,48 @@
+
+
+
+
+##Key-value pair
+
+fruit: apple
+liqiid: water
+
+
+#dictionary
+
+apple:
+  calorie: 120
+  fat: 30gm
+banana:
+  calorie: 100
+  fat: 3gm
+
+#Array/list
+
+fruits:
+  -  apple:
+         calorie: 120
+         fat: 30gm
+  -  orange
+  -  grapes
+
+
+#Company data
+
+Employee:
+    name: sandeep
+    company: FICO
+    adress:
+      village: serwan
+      post: atrampur
+      state: UP
+      pin: 229412
+    paysilp:
+      - month: jan
+        salary: 100
+      - month: feb
+        salary: 200
+
+
+
+

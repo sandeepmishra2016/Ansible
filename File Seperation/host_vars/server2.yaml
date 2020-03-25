@@ -1,0 +1,10 @@
+#Reason we have mutiple var yaml file for each server is ,
+#Suppose we're using the different password on server1 and server2 then in that case ,
+#It's useful to seperate the var file
+
+
+
+    db_name: employee_db
+    db_user: db_user
+    db_password: Passw0rd
+
