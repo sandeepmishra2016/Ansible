@@ -31,12 +31,12 @@ fruits:
 
 Employee:
     name: sandeep
-    company: FICO
+    company: company
     adress:
-      village: serwan
-      post: atrampur
+      village: ser
+      post: atra
       state: UP
-      pin: 229412
+      pin: 954953
     paysilp:
       - month: jan
         salary: 100
